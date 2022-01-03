@@ -5,6 +5,8 @@ import Story from "./components/Story"
 
 /* TODO
 
+// pagination should listen for currentPage - revisit
+
 1. Make SearchBar its own component
 2. Make Pagination its own component
 3. Add loading screen
@@ -33,13 +35,18 @@ export default function App(props) {
     fetchNews()
   }
 
+  const handlePageChange = (e) => {
+    // console.log(parseInt(e.target.textContent))
+    ({pageNumber} === parseInt(e.target.textContent)) ? setPageNumber(e.target.textContent) : console.log('not sure about the second part')
+  }
+
   const Pagination = () => {
     let pages = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
     return (
       <>
         <div className='pagination'>
           {pages.map((page) => (
-            <a onClick={(e) => setPageNumber(e.target.value)}>{page}</a>
+            <a onClick={handlePageChange}>{page}</a>
           ))}
         </div>
       </>
