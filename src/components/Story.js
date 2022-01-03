@@ -1,5 +1,4 @@
-export default function Story(props) {
-    const {stories} = props
+export default function Story({stories}) {
     return (
         <ul>
             {stories.map((story) => (

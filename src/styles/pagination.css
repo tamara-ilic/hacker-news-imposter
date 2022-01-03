@@ -1,0 +1,18 @@
+.pagination {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.pagination a {
+    margin-right: 0.25em;
+    padding: 0.25em;
+}
+
+.pagination a.active {
+    background-color: lightcoral;
+}
+
+.pagination a:hover:not(.active) {
+    background-color: lightgrey;
+}
