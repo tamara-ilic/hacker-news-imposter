@@ -5,43 +5,41 @@ import Story from "./components/Story"
 
 /* TODO
 
-// pagination should listen for currentPage - revisit
-
 1. Make SearchBar its own component
 2. Make Pagination its own component
 3. Add loading screen
-4. Add 'Stories' and 'Comments' filter
-5. Use ReactRouter for pagination
+4. Only 6 pages to be displayed at once with >> for remaining
+5. Add 'Stories' and 'Comments' filter
+6. Use ReactRouter for pagination
 
 */
 
 export default function App(props) {
   const [stories, setStories] = useState([])
   const [query, setQuery] = useState('microdosing')
-  const [pageNumber, setPageNumber] = useState(1)
-  const url = "https://hn.algolia.com/api/v1/search?query=";
+  let [pageNumber, setPageNumber] = useState(0)
 
-  const fetchNews = () => {
-    fetch(`${url}${query}&page=${pageNumber}`)
+  const url = `https://hn.algolia.com/api/v1/search?query=${query}`;
+
+  const fetchNews = (url, pageNumber) => {
+    fetch(`${url}&page=${pageNumber}`)
     .then((res) => res.json())
     .then((res) => setStories(res.hits))
-    .then((res) => setQuery(query))
-    .then(() => setQuery(''))
-    .then((res) => setPageNumber(pageNumber))
   }
 
   const handleSearchSubmit = e => {
     e.preventDefault()
-    fetchNews()
+    console.log(e.target)
+    fetchNews(url, pageNumber)
   }
 
   const handlePageChange = (e) => {
-    // console.log(parseInt(e.target.textContent))
-    ({pageNumber} === parseInt(e.target.textContent)) ? setPageNumber(e.target.textContent) : console.log('not sure about the second part')
+    const newPage = parseInt(e.target.textContent)
+    fetchNews(url, newPage)
   }
 
   const Pagination = () => {
-    let pages = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
+    let pages = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]  
     return (
       <>
         <div className='pagination'>
@@ -53,12 +51,9 @@ export default function App(props) {
     )
   }
 
-  // const handlePagination = e => {
-  //   // should add page number to API call when page number is clicked
-  // }
-
   useEffect(() => {
-    fetchNews()}, [])
+    fetchNews(url, pageNumber)
+  }, [])
 
   return (
     <div className="App">
