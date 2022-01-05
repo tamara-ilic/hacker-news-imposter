@@ -1,0 +1,9 @@
+.story, .story-container {
+    display: flex;
+}
+
+.story {
+    border-bottom: 1px solid #eee;
+    min-height: 5.5rem;
+    padding-left: 1.125rem;
+}

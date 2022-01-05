@@ -1,7 +1,7 @@
 import "././styles/App.css";
 import "././styles/pagination.css"
 import { useState, useEffect } from "react";
-import Story from "./components/Story"
+import StoryList from "./components/StoryList"
 
 /* TODO
 
@@ -27,13 +27,12 @@ export default function App(props) {
     .then((res) => setStories(res.hits))
   }
 
-  const handleSearchSubmit = e => {
-    e.preventDefault()
-    console.log(e.target)
+  const handleSearch = e => {
+    setQuery(e.target.value)
     fetchNews(url, pageNumber)
   }
 
-  const handlePageChange = (e) => {
+  const handlePageChange = e => {
     const newPage = parseInt(e.target.textContent)
     fetchNews(url, newPage)
   }
@@ -57,15 +56,15 @@ export default function App(props) {
 
   return (
     <div className="App">
-      <form onSubmit={handleSearchSubmit}>
+      {/* <form onSubmit={handleSearchSubmit}> */}
         <input
           type='text'
           placeholder='Search stories by title, url or author'
           value={query}
-          onChange={(e) => setQuery(e.target.value)}>
+          onChange={handleSearch}>
         </input>
-      </form>
-      <Story stories={stories}/>
+      {/* </form> */}
+      <StoryList stories={stories}/>
       <Pagination />
     </div>
   );
