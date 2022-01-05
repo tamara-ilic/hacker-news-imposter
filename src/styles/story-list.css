@@ -1,9 +1,47 @@
-.story, .story-container {
+.searchResults-container {
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    width: 70%;
+}
+
+.story, .story-container, .story-meta, .story-meta > span {
     display: flex;
 }
 
 .story {
+    align-items: center;
+    background-color: #fff;
     border-bottom: 1px solid #eee;
+    font-family:  -apple-system, BlinkMacSystemFont, sans-serif;
     min-height: 5.5rem;
     padding-left: 1.125rem;
+}
+
+.story-data {
+    text-align: left;
+}
+
+.story-title {
+    color: rgba(33,36,61,.8);
+    display: inline-block;
+    margin-bottom: 4px;
+    text-decoration: none;
+    width: 100%;
+}
+
+.story-meta {
+    align-items: center;
+    color: rgba(33,36,61,.5);
+    font-size: 0.625rem;
+}
+
+.story-meta > span {
+    align-items: center;
+    margin-right: 1rem;
+}
+
+.story-meta > span > svg {
+    margin-right: 4px;
 }

@@ -1,6 +1,7 @@
 import "././styles/App.css";
 import "././styles/pagination.css"
 import { useState, useEffect } from "react";
+import SearchIcon from "./images/SearchIcon";
 import StoryList from "./components/StoryList"
 
 /* TODO
@@ -18,6 +19,7 @@ export default function App(props) {
   const [stories, setStories] = useState([])
   const [query, setQuery] = useState('microdosing')
   let [pageNumber, setPageNumber] = useState(0)
+  const [loading, setLoading] = useState(true)
 
   const url = `https://hn.algolia.com/api/v1/search?query=${query}`;
 
@@ -54,18 +56,29 @@ export default function App(props) {
     fetchNews(url, pageNumber)
   }, [])
 
-  return (
-    <div className="App">
-      {/* <form onSubmit={handleSearchSubmit}> */}
-        <input
-          type='text'
-          placeholder='Search stories by title, url or author'
-          value={query}
-          onChange={handleSearch}>
-        </input>
-      {/* </form> */}
-      <StoryList stories={stories}/>
-      <Pagination />
-    </div>
-  );
+  useEffect(() => {
+    if (stories[0]) setLoading(false)
+  }, [stories])
+
+  if (loading) 
+    return 'loading'
+  else {
+    return (
+      <div className="App">
+        <div className='search-container'>
+          <SearchIcon />
+          <input
+            type='text'
+            placeholder='Search stories by title, url or author'
+            value={query}
+            onChange={handleSearch}>
+          </input>
+        </div>
+  
+        <StoryList stories={stories}/>
+  
+        <Pagination />
+      </div>
+    )
+  }
 }
