@@ -9,6 +9,10 @@
     padding: 0.25em;
 }
 
+.pagination a:hover {
+    cursor: pointer;
+}
+
 .pagination a.active {
     background-color: lightcoral;
 }

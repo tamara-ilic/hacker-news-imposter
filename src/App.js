@@ -14,6 +14,7 @@ import StoryList from "./components/StoryList"
 4. Only 6 pages to be displayed at once with >> for remaining
 5. Add 'Stories' and 'Comments' filter
 6. Use ReactRouter for pagination
+7. Shorten the links for the host name
 
 */
 
@@ -21,15 +22,22 @@ export default function App(props) {
   const [stories, setStories] = useState([])
   const [query, setQuery] = useState('microdosing')
   let [pageNumber, setPageNumber] = useState(0)
+  let [numberOfHits, setNumberOfHits] = useState(0)
+  let [numberOfPages, setNumberOfPages] = useState(0)
   const [loading, setLoading] = useState(true)
   const [color, setColor] = useState('orange')
 
   const url = `https://hn.algolia.com/api/v1/search?query=${query}`;
 
   const fetchNews = (url, pageNumber) => {
-    fetch(`${url}&page=${pageNumber}`)
+    fetch(`${url}&page=${pageNumber}&tags=story`)
     .then((res) => res.json())
-    .then((res) => setStories(res.hits))
+    .then((res) => {
+      setNumberOfHits(res.nbHits)
+      setNumberOfPages(res.nbPages)
+      setStories(res.hits)
+      setPageNumber(1)
+    })
   }
 
   const handleSearch = e => {
@@ -39,17 +47,24 @@ export default function App(props) {
 
   const handlePageChange = e => {
     // pages from API start from 0
-    const newPage = parseInt(e.target.textContent) - 1
+    const activePage = e.target
+    const newPage = parseInt(activePage.textContent) - 1
+    setPageNumber(newPage)
+    console.log(pageNumber)
     fetchNews(url, newPage)
   }
 
   const Pagination = () => {
-    let pages = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]  
+    const storiesPerPage = 20
+    let pages = []
+    for (let i = 0; i < numberOfPages; i++) {
+      pages.push(i + 1)
+    }
     return (
       <>
         <div className='pagination'>
           {pages.map((page) => (
-            <a onClick={handlePageChange}>{page}</a>
+            <a onClick={handlePageChange} className={`${pageNumber === page ? "active" : ""}`} >{page}</a>
           ))}
         </div>
       </>
