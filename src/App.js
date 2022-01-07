@@ -1,5 +1,7 @@
 import "././styles/App.css";
 import "././styles/pagination.css"
+import { css } from "@emotion/react";
+import DotLoader from 'react-spinners/DotLoader'
 import { useState, useEffect } from "react";
 import SearchIcon from "./images/SearchIcon";
 import StoryList from "./components/StoryList"
@@ -8,7 +10,7 @@ import StoryList from "./components/StoryList"
 
 1. Make SearchBar its own component
 2. Make Pagination its own component
-3. Add loading screen
+3. Position loader in center of page
 4. Only 6 pages to be displayed at once with >> for remaining
 5. Add 'Stories' and 'Comments' filter
 6. Use ReactRouter for pagination
@@ -20,6 +22,7 @@ export default function App(props) {
   const [query, setQuery] = useState('microdosing')
   let [pageNumber, setPageNumber] = useState(0)
   const [loading, setLoading] = useState(true)
+  const [color, setColor] = useState('orange')
 
   const url = `https://hn.algolia.com/api/v1/search?query=${query}`;
 
@@ -35,12 +38,13 @@ export default function App(props) {
   }
 
   const handlePageChange = e => {
-    const newPage = parseInt(e.target.textContent)
+    // pages from API start from 0
+    const newPage = parseInt(e.target.textContent) - 1
     fetchNews(url, newPage)
   }
 
   const Pagination = () => {
-    let pages = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]  
+    let pages = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]  
     return (
       <>
         <div className='pagination'>
@@ -60,8 +64,15 @@ export default function App(props) {
     if (stories[0]) setLoading(false)
   }, [stories])
 
+  const override = css`
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    border-color: red;
+  `;
+
   if (loading) 
-    return 'loading'
+    return <DotLoader color={color} size={180} css='override'/>
   else {
     return (
       <div className="App">
