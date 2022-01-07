@@ -3,7 +3,7 @@
     display: flex;
     flex-direction: column;
     margin: auto;
-    width: 70%;
+    padding-top: 11.25rem;
 }
 
 .story, .story-container, .story-meta, .story-meta > span {
@@ -14,7 +14,6 @@
     align-items: center;
     background-color: #fff;
     border-bottom: 1px solid #eee;
-    font-family:  -apple-system, BlinkMacSystemFont, sans-serif;
     min-height: 5.5rem;
     padding-left: 1.125rem;
 }
@@ -27,7 +26,6 @@
     color: rgba(33,36,61,.8);
     display: inline-block;
     margin-bottom: 4px;
-    text-decoration: none;
     width: 100%;
 }
 

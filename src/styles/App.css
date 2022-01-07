@@ -3,14 +3,20 @@
 }
 
 body {
+/* below styles are a hack for the loader - revisit */  
   align-items: center;
+  background-color: #f5f5fa;
   display: flex;
   justify-content: center;
   min-height: 100vh;
 }
 
 .App {
+  font-family:  -apple-system, BlinkMacSystemFont, sans-serif;
+  margin-left: 6.625rem;
+  margin-right: 6.625rem;
   text-align: center;
+  width: 85%;
 }
 
 .App-logo {
@@ -18,12 +24,12 @@ body {
   pointer-events: none;
 }
 
-.search-container {
-  color: #3a416f;
+.App ul {
+  list-style: none;
 }
 
-input {
-  background-color: rgba(197,201,224,.4);;
+.App a {
+  text-decoration: none;
 }
 
 @media (prefers-reduced-motion: no-preference) {

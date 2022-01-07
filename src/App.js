@@ -1,20 +1,24 @@
-import "././styles/App.css";
-import "././styles/pagination.css"
-import { css } from "@emotion/react";
+import '././styles/App.css'
+import '././styles/pagination.css'
+import { css } from '@emotion/react';
 import DotLoader from 'react-spinners/DotLoader'
-import { useState, useEffect } from "react";
-import SearchIcon from "./images/SearchIcon";
-import StoryList from "./components/StoryList"
+import { useState, useEffect } from 'react'
+import Header from './components/Header'
+import StoryList from './components/StoryList'
+import Pagination from './components/Pagination'
+import Sidebar from './components/Sidebar'
 
 /* TODO
 
 1. Make SearchBar its own component
-2. Make Pagination its own component
-3. Position loader in center of page
-4. Only 6 pages to be displayed at once with >> for remaining
-5. Add 'Stories' and 'Comments' filter
-6. Use ReactRouter for pagination
-7. Shorten the links for the host name
+2. Make Pagination its own component -- note this has been drafted
+3. Only 6 pages to be displayed at once with >> for remaining -- scrap
+4. Add 'Stories' and 'Comments' filter
+5. Use ReactRouter for pagination
+6. Shorten the links for the host name
+7. Convert fetch into async await
+8. Add try/catch to fetch
+9. Logo shouldn't be in public folder, currently working as a hack
 
 */
 
@@ -30,6 +34,7 @@ export default function App(props) {
   const url = `https://hn.algolia.com/api/v1/search?query=${query}`;
 
   const fetchNews = (url, pageNumber) => {
+    console.log('called with query: ', query)
     fetch(`${url}&page=${pageNumber}&tags=story`)
     .then((res) => res.json())
     .then((res) => {
@@ -40,36 +45,6 @@ export default function App(props) {
     })
   }
 
-  const handleSearch = e => {
-    setQuery(e.target.value)
-    fetchNews(url, pageNumber)
-  }
-
-  const handlePageChange = e => {
-    // pages from API start from 0
-    const activePage = e.target
-    const newPage = parseInt(activePage.textContent) - 1
-    setPageNumber(newPage)
-    fetchNews(url, newPage)
-  }
-
-  const Pagination = () => {
-    const storiesPerPage = 20
-    let pages = []
-    for (let i = 0; i < 10; i++) {
-      pages.push(i + 1)
-    }
-    return (
-      <>
-        <ul className='pagination'>
-          {pages.map((page) => (
-            <li><a onClick={handlePageChange} className={`${pageNumber + 1 === page ? "active" : ""}`} key={`page-${page}`} >{page}</a></li>
-          ))}
-        </ul>
-      </>
-    )
-  }
-
   useEffect(() => {
     fetchNews(url, pageNumber)
   }, [])
@@ -78,24 +53,66 @@ export default function App(props) {
     if (stories[0]) setLoading(false)
   }, [stories])
 
+  const debounce = (func, wait) => {
+    let timeout;
+  
+    return function executedFunction(...args) {
+      const later = () => {
+        clearTimeout(timeout);
+        func(...args);
+      };
+  
+      clearTimeout(timeout);
+      timeout = setTimeout(later, wait);
+    };
+  };
+
+  const handleSearch = (e) => {
+    setPageNumber(0)
+    setQuery(e.target.value)
+    debounce(fetchNews(url, pageNumber), 5000)
+  }
+
+  const handlePageChange = (e) => {
+    const activePage = e.target
+    // pages from API start from 0
+    const newPage = parseInt(activePage.textContent) - 1
+    setPageNumber(newPage)
+    fetchNews(url, newPage)
+  }
+
+  const Pagination = () => {
+    const storiesPerPage = 20
+    let pages = []
+    const maxPages = numberOfPages > 10 ? 10 : numberOfPages
+    for (let i = 0; i < maxPages; i++) {
+      pages.push(i + 1)
+    }
+    return (
+      <>
+        <ul className='pagination'>
+          {pages.map((page) => (
+            <li><a onClick={handlePageChange} className={`${pageNumber + 1 === page ? 'active' : ''}`} key={`page-${page}`} >{page}</a></li>
+          ))}
+        </ul>
+      </>
+    )
+  }
+
   if (loading) 
     return <DotLoader color={color} size={180} css='override'/>
   else {
     return (
-      <div className="App">
-        <div className='search-container'>
-          <SearchIcon />
-          <input
-            type='text'
-            placeholder='Search stories by title, url or author'
-            value={query}
-            onChange={handleSearch}>
-          </input>
-        </div>
-  
+      <div className='App'>
+
+        <Header onSearchInput={handleSearch} />
+
         <StoryList stories={stories}/>
   
         <Pagination />
+
+        <Sidebar />
+
       </div>
     )
   }

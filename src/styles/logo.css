@@ -1,0 +1,12 @@
+img {
+    height: 3.75rem;
+    margin-right: 0.5rem;
+    width: 3.75rem;
+}
+
+.search-header-label {
+    color: rgba(33,36,61,.5);
+    font-size: 1.125rem;
+    line-height: 1;
+    text-align: left;
+}
