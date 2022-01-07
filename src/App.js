@@ -36,7 +36,7 @@ export default function App(props) {
       setNumberOfHits(res.nbHits)
       setNumberOfPages(res.nbPages)
       setStories(res.hits)
-      setPageNumber(1)
+      setPageNumber(pageNumber)
     })
   }
 
@@ -57,16 +57,16 @@ export default function App(props) {
   const Pagination = () => {
     const storiesPerPage = 20
     let pages = []
-    for (let i = 0; i < numberOfPages; i++) {
+    for (let i = 0; i < 10; i++) {
       pages.push(i + 1)
     }
     return (
       <>
-        <div className='pagination'>
+        <ul className='pagination'>
           {pages.map((page) => (
-            <a onClick={handlePageChange} className={`${pageNumber === page ? "active" : ""}`} >{page}</a>
+            <li><a onClick={handlePageChange} className={`${pageNumber + 1 === page ? "active" : ""}`} key={`page-${page}`} >{page}</a></li>
           ))}
-        </div>
+        </ul>
       </>
     )
   }
@@ -78,13 +78,6 @@ export default function App(props) {
   useEffect(() => {
     if (stories[0]) setLoading(false)
   }, [stories])
-
-  const override = css`
-    display: flex;
-    justify-content: center;
-    margin: auto;
-    border-color: red;
-  `;
 
   if (loading) 
     return <DotLoader color={color} size={180} css='override'/>

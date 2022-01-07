@@ -24,7 +24,7 @@ export default function StoryList({stories}) {
     return (
       <div className='searchResults-container'>
       {stories.map((story) => (
-          <article className='story'>
+          <article className='story' key={story.objectID} >
             <div className='story-container'>
               <div className='story-data'>
                   <a className='story-title' href={story.url} target="_blank" rel="noreferrer">
