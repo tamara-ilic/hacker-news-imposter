@@ -50,7 +50,6 @@ export default function App(props) {
     const activePage = e.target
     const newPage = parseInt(activePage.textContent) - 1
     setPageNumber(newPage)
-    console.log(pageNumber)
     fetchNews(url, newPage)
   }
 
