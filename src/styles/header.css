@@ -61,22 +61,21 @@ button, input, optgroup, select, textarea {
 }
 
 .powered-by {
-    right: 24px;
+    align-items: center;
     color: rgba(33,36,61,.5);
-    margin-left: 8px;
-    white-space: nowrap;
+    display: flex;
+    margin-left: 0.5rem;
     position: absolute;
-    right: 8px;
+    right: 1.5rem;
     top: 50%;
-    -webkit-transform: translateY(-50%);
     transform: translateY(-50%);
+    user-select: none;
+    white-space: nowrap;
+    -webkit-transform: translateY(-50%);
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
-    user-select: none;
-    display: flex;
     -ms-flex-align: center;
-    align-items: center;
 }
 
 .powered-by span {
