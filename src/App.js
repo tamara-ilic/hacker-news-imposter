@@ -22,7 +22,7 @@ export default function App(props) {
     fetch(`${url}&page=${pageNumber}&tags=story`)
     .then((res) => res.json())
     .then((res) => {
-      setNumberOfHits(numberOfHits => res.nbHits)
+      setNumberOfHits(res.nbHits)
       setNumberOfPages(res.nbPages)
       setStories(res.hits)
       setPageNumber(pageNumber)
@@ -66,6 +66,7 @@ export default function App(props) {
   }
 
   const Pagination = () => {
+    const storiesPerPage = 20
     let pages = []
     const maxPages = numberOfPages > 10 ? 10 : numberOfPages
     for (let i = 0; i < maxPages; i++) {
@@ -83,7 +84,7 @@ export default function App(props) {
   }
 
   if (loading) 
-    return <DotLoader color={setColor(color)} size={180} css='override'/>
+    return <DotLoader color={color} size={180} css='override'/>
   else {
     return (
       <div className='App'>
