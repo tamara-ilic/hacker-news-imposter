@@ -1,11 +1,9 @@
 import '././styles/App.css'
 import '././styles/pagination.css'
-import { css } from '@emotion/react';
 import DotLoader from 'react-spinners/DotLoader'
 import { useState, useEffect } from 'react'
 import Header from './components/Header'
 import StoryList from './components/StoryList'
-import Pagination from './components/Pagination'
 import Sidebar from './components/Sidebar'
 
 export default function App(props) {
@@ -24,7 +22,7 @@ export default function App(props) {
     fetch(`${url}&page=${pageNumber}&tags=story`)
     .then((res) => res.json())
     .then((res) => {
-      setNumberOfHits(res.nbHits)
+      setNumberOfHits(numberOfHits => res.nbHits)
       setNumberOfPages(res.nbPages)
       setStories(res.hits)
       setPageNumber(pageNumber)
@@ -68,7 +66,6 @@ export default function App(props) {
   }
 
   const Pagination = () => {
-    const storiesPerPage = 20
     let pages = []
     const maxPages = numberOfPages > 10 ? 10 : numberOfPages
     for (let i = 0; i < maxPages; i++) {
@@ -86,7 +83,7 @@ export default function App(props) {
   }
 
   if (loading) 
-    return <DotLoader color={color} size={180} css='override'/>
+    return <DotLoader color={setColor(color)} size={180} css='override'/>
   else {
     return (
       <div className='App'>
