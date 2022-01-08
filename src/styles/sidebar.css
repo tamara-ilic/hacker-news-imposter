@@ -6,13 +6,32 @@
     position: fixed;
     top: 0;
     width: 13.75rem;
-    z-index: 10;
 }
 
 .sidebar ul {
     margin: 0 0 0 1.5rem;
-    width: 80%;
     padding: 0.5rem;
+    width: 80%;
+}
+
+.sidebar ul:not(:last-child) {
+    border-bottom: 1px solid #eee;
+}
+
+.sidebar li {
+    color: rgba(33,36,61,.5);
+    text-align: left;
+    width: 100%;
+}
+
+.sidebar li a {
+    align-items: center;
+    display: flex;
+    font-size: 1.25rem;
+    overflow: hidden;
+    padding: 1rem 1.5rem 1rem 0;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .sidebar ul li a svg {

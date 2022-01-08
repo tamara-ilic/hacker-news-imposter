@@ -2,6 +2,7 @@ import './../styles/story-list.css'
 import HeartIcon from '../images/HeartIcon'
 import PersonIcon from '../images/PersonIcon'
 import ClockIcon from '../images/ClockIcon'
+import StoryShareIcons from '../images/StoryShareIcons'
 
 export default function StoryList({stories}) {
   // const calculateTimeLapsedSinceStoryCreation = (created_at) => {
@@ -22,25 +23,44 @@ export default function StoryList({stories}) {
   // }
 
     return (
-      <div className='searchResults-container'>
-      {stories.map((story) => (
-          <article className='story' key={story.objectID} >
-            <div className='story-container'>
-              <div className='story-data'>
-                  <a className='story-title' href={story.url} target="_blank" rel="noreferrer">
-                      {story.title}
-                  </a>
-                  <div className='story-meta'>
-                    <span><HeartIcon /> {story.points}</span>
-                    <span><PersonIcon /> {story.author}</span>
-                    <span><ClockIcon /> {new Date(story.created_at).toLocaleString('en-us')}</span>
-                    <span>{story.url}</span>
+      <section className='search-results'>
+        <div className='search-results-container'>
+          {stories.map((story) => (
+              <article className='story' key={story.objectID} >
+                <div className='story-container'>
+                  <div className='story-data'>
+                      <a className='story-title' href={story.url} target="_blank" rel="noreferrer">
+                          {story.title}
+                      </a>
+                      <div className='story-meta'>
+                        <span>
+                          <a href={`https://news.ycombinator.com/item?id=${story.objectID}`} target='_blank'>
+                            <HeartIcon />
+                            {story.points}
+                          </a>
+                          </span>
+                        <span>
+                          <a href={`https://news.ycombinator.com/user?id=${story.author}`} target='_blank'>
+                            <PersonIcon />
+                            {story.author}
+                          </a>
+                          </span>
+                        <span><ClockIcon /> {new Date(story.created_at).toLocaleString('en-us')}</span>
+                        {/* <span>{story.url}</span> */}
+                      </div>
                   </div>
-              </div>
-              <div className='story-socials'></div>
-            </div>
-          </article>
-        ))}
-      </div>
+                  <div className='story-socials'>
+                    <button className='story-comments-button'>{story.num_comments}</button>
+                    <div class='story-share-dropdown'>
+                      <label>
+                        <StoryShareIcons />
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+      </section>
     )
 }

@@ -9,8 +9,7 @@ import Pagination from './components/Pagination'
 import Sidebar from './components/Sidebar'
 
 /* TODO
-
-1. Make SearchBar its own component
+1. Calculate time parse since article created_at date
 2. Make Pagination its own component -- note this has been drafted
 3. Only 6 pages to be displayed at once with >> for remaining -- scrap
 4. Add 'Stories' and 'Comments' filter
@@ -108,7 +107,7 @@ export default function App(props) {
         <Header onSearchInput={handleSearch} />
 
         <StoryList stories={stories}/>
-  
+        
         <Pagination />
 
         <Sidebar />

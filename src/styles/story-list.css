@@ -1,9 +1,13 @@
-.searchResults-container {
+.search-results {
+    background: #f6f6ef;
+    background-color: transparent;
+    min-height: calc(100vh - 7.5rem);
+    padding: 11.125rem 1.5rem 0 15.875rem;
+    position: relative;
+}
+
+.search-results-container {
     border-radius: 4px;
-    display: flex;
-    flex-direction: column;
-    margin: auto;
-    padding-top: 11.25rem;
 }
 
 .story, .story-container, .story-meta, .story-meta > span {
@@ -13,9 +17,13 @@
 .story {
     align-items: center;
     background-color: #fff;
-    border-bottom: 1px solid #eee;
+    box-shadow: 0 1.125rem 1.5rem rgb(14 16 29 / 12%);
     min-height: 5.5rem;
-    padding-left: 1.125rem;
+    padding: 1rem;
+}
+
+.story:not(:last-child) {
+    border-bottom: 1px solid #eee;
 }
 
 .story-data {
@@ -42,4 +50,78 @@
 
 .story-meta > span > svg {
     margin-right: 4px;
+}
+
+.story-meta a:hover {
+    border-bottom: 1px dotted #ccc;
+}
+
+.story-socials {
+    align-items: center;
+    display: flex;
+    flex: 1 1;
+    justify-content: flex-end;
+    min-width: 8.75rem;
+    text-align: right;
+}
+
+.story-socials button {
+    border: none;
+    margin: 0 0.5rem;
+}
+
+.story-socials button::before {
+    border-right: 6px solid #dbddea;
+}
+
+.story-comments-button {
+    background-color: #dbddea;
+    border-radius: 2px;
+    color: rgba(33,36,61,.8);
+    font-size: 0.75rem;
+    font-weight: 500;
+    height: 1.3125rem;
+    padding: 4px;
+    position: relative;
+    min-width: 1.5625rem;
+}
+
+.story-comments-button::before {
+    border-bottom: 6px solid transparent;
+    border-top: 6px solid transparent;
+    bottom: -6px;
+    content: "";
+    height: 0;
+    position: absolute;
+    right: 4px;
+    width: 0;
+}
+
+.story_comments button:hover:not(:disabled) {
+    background-color: #3a416f;
+    color: #fff;
+}
+
+.story-share-dropdown label {
+    align-items: center;
+    background-color: transparent;
+    /* border: none;
+    border-radius: 2px; */
+    color: #dbddea;
+    cursor: pointer;
+    display: flex;
+    font-size: 14px;
+    margin: 0 8px 0 2px;
+    outline: none;
+    overflow: hidden;
+    padding: 0 4px 0 8px;
+    position: relative;
+    text-align: right;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.story-share-dropdown label svg {
+    margin-left: 4px;
+    width: 1.125rem;
 }
