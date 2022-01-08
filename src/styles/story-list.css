@@ -52,6 +52,10 @@
     margin-right: 4px;
 }
 
+.story-meta span a {
+    color: rgba(33,36,61,.5);
+}
+
 .story-meta a:hover {
     border-bottom: 1px dotted #ccc;
 }

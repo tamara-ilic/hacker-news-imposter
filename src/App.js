@@ -8,19 +8,6 @@ import StoryList from './components/StoryList'
 import Pagination from './components/Pagination'
 import Sidebar from './components/Sidebar'
 
-/* TODO
-1. Calculate time parse since article created_at date
-2. Make Pagination its own component -- note this has been drafted
-3. Only 6 pages to be displayed at once with >> for remaining -- scrap
-4. Add 'Stories' and 'Comments' filter
-5. Use ReactRouter for pagination
-6. Shorten the links for the host name
-7. Convert fetch into async await
-8. Add try/catch to fetch
-9. Logo shouldn't be in public folder, currently working as a hack
-
-*/
-
 export default function App(props) {
   const [stories, setStories] = useState([])
   const [query, setQuery] = useState('microdosing')
