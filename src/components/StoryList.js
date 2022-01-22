@@ -22,6 +22,8 @@ export default function StoryList({stories}) {
   //   return `${timeLapsed} months ago`
   // }
 
+  // const root = new URL("https://stackoverflow.com/questions/8498592/extract-hostname-name-from-string").host
+
     return (
       <section className='search-results'>
         <div className='search-results-container'>
@@ -46,7 +48,7 @@ export default function StoryList({stories}) {
                           </a>
                           </span>
                         <span><ClockIcon /> {new Date(story.created_at).toLocaleString('en-us')}</span>
-                        {/* <span>{story.url}</span> */}
+                        <span>{story.url}</span>
                       </div>
                   </div>
                   <div className='story-socials'>
