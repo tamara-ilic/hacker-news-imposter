@@ -5,7 +5,7 @@ export default function Logo() {
         <div className='search-header-logo'>
             <a href='/'>
                 <img
-                    src='/hn-logo.png'
+                    src={require('../images/hn-logo.png')  }
                     alt='Hacker News logo'
                 >
                 </img>
