@@ -1,39 +1,44 @@
 .sidebar {
-    background-color: #f5f5fa;
-    height: 100%;
-    overflow: auto;
-    padding-top: 8rem;
-    position: fixed;
-    top: 0;
-    width: 13.75rem;
+	background-color: #f5f5fa;
+	height: 100%;
+	overflow: auto;
+	padding-top: 8rem;
+	position: fixed;
+	top: 0;
+	width: 13.75rem;
 }
 
 .sidebar ul {
-    margin: 0 0 0 1.5rem;
-    padding: 0.5rem;
-    width: 80%;
+	margin: 0 0 0 1.5rem;
+	padding: 0.5rem;
+	width: 80%;
 }
 
 .sidebar ul:not(:last-child) {
-    border-bottom: 1px solid #eee;
+	border-bottom: 1px solid #eee;
 }
 
 .sidebar li {
-    color: rgba(33,36,61,.5);
-    text-align: left;
-    width: 100%;
+	color: rgba(33, 36, 61, 0.5);
+	text-align: left;
+	width: 100%;
 }
 
 .sidebar li a {
-    align-items: center;
-    display: flex;
-    font-size: 1.25rem;
-    overflow: hidden;
-    padding: 1rem 1.5rem 1rem 0;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+	align-items: center;
+	display: flex;
+	font-size: 1.25rem;
+	overflow: hidden;
+	padding: 1rem 1.5rem 1rem 0;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.sidebar li a:active {
+	color: #3a416f;
 }
 
 .sidebar ul li a svg {
-    margin-right: 1.5rem;
+	margin-right: 1.5rem;
+	width: 1.5rem;
 }

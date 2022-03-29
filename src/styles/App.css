@@ -3,6 +3,9 @@
 }
 
 #root {
+	align-content: center;
+	display: flex;
+	justify-content: center;
 	width: 100%;
 }
 

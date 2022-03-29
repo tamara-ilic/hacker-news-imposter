@@ -66,7 +66,6 @@ export default function App(props) {
   }
 
   const Pagination = () => {
-    const storiesPerPage = 20
     let pages = []
     const maxPages = numberOfPages > 10 ? 10 : numberOfPages
     for (let i = 0; i < maxPages; i++) {

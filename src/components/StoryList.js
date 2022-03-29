@@ -49,7 +49,12 @@ export default function StoryList({stories}) {
                         {story.author}
                       </a>
                     </span>
-                    <span><ClockIcon /> {calculateTimeLapsedSinceStoryCreation(story.created_at)} </span>
+                    <span>
+                      <a href={`https://news.ycombinator.com/item?id=${story.objectID}`} target='_blank' rel='noreferrer'>
+                        <ClockIcon />
+                        {calculateTimeLapsedSinceStoryCreation(story.created_at)} 
+                      </a>
+                    </span>
                     <span>
                       {story.url ? 
                         <a href={story.url} target='_blank' rel='noreferrer' className='story-url'>

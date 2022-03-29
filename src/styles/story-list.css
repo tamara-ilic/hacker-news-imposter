@@ -90,6 +90,10 @@
 	border-right: 6px solid #dbddea;
 }
 
+.story-socials svg {
+	color: #dbddea;
+}
+
 .story-comments-button {
 	background-color: #dbddea;
 	border-radius: 2px;
