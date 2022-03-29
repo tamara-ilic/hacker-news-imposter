@@ -16,13 +16,12 @@ header {
 }
 
 .search-icon {
+	font-size: 1.5rem;
 	left: 1.125rem;
+	pointer-events: none;
 	position: absolute;
 	top: 54%;
 	transform: translateY(-50%);
-	position: absolute;
-	font-size: 24px;
-	pointer-events: none;
 }
 
 .search-icon > svg {
@@ -35,12 +34,11 @@ input {
 	border-radius: 4px;
 	box-shadow: none;
 	color: rgba(0, 0, 0, 0.75);
-	font-weight: 300;
 	font-size: 100%;
+	font-weight: 300;
 	height: 4rem;
 	line-height: 1.15;
 	padding: 1rem 9rem 1rem 3.625rem;
-	padding-left: 58px;
 	width: 100%;
 }
 

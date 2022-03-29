@@ -1,4 +1,4 @@
-import '../styles/header.css'
+import '../styles/Header.css'
 import Logo from '../images/Logo'
 import SearchIcon from '../images/SearchIcon'
 import SettingsIcon from '../images/SettingsIcon'
