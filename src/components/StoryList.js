@@ -7,22 +7,6 @@ import StoryShareIcons from '../images/StoryShareIcons'
 import Moment from 'react-moment'
 
 export default function StoryList({stories}) {
-  // const calculateTimeLapsedSinceStoryCreation = (created_at) => {
-  //   let currentTime = new Date()
-  //   const timeLapsed = currentTime - created_at
-      
-  //   return 
-  // }
-
-  // const calculateTimeline = () => {
-  //   if (timeLapsed > 12) {
-  //     return `${timeLapsed} years ago` 
-  //   }
-  //   if (timeLapsed < 1) {
-  //     return `${timeLapsed} days ago`
-  //   }
-  //   return `${timeLapsed} months ago`
-  // }
 
   const calculateTimeLapsedSinceStoryCreation = (time) => {
      const dateCreated = new Date(time)
@@ -49,27 +33,29 @@ export default function StoryList({stories}) {
             <article className='story' key={story.objectID}>
               <div className='story-container'>
                 <div className='story-data'>
-                  <a className='story-title' href={story.url} target="_blank" rel="noreferrer">
+                  <a className='story-title' href={story.url} target='_blank' rel='noreferrer'>
                     {story.title}
                   </a>
                   <div className='story-meta'>
                     <span>
-                      <a href={`https://news.ycombinator.com/item?id=${story.objectID}`} target='_blank' rel="noreferrer">
+                      <a href={`https://news.ycombinator.com/item?id=${story.objectID}`} target='_blank' rel='noreferrer'>
                         <HeartIcon />
                         {story.points}
                       </a>
                     </span>
                     <span>
-                      <a href={`https://news.ycombinator.com/user?id=${story.author}`} target='_blank' rel="noreferrer">
+                      <a href={`https://news.ycombinator.com/user?id=${story.author}`} target='_blank' rel='noreferrer'>
                         <PersonIcon />
                         {story.author}
                       </a>
                     </span>
                     <span><ClockIcon /> {calculateTimeLapsedSinceStoryCreation(story.created_at)} </span>
                     <span>
-                      <a href={story.url} target='_blank' rel="noreferrer" className='story-url'>
+                      {story.url ? 
+                        <a href={story.url} target='_blank' rel='noreferrer' className='story-url'>
                         ({getHost(story.url)})
-                      </a>
+                      </a> : ''
+                    }
                     </span>
                   </div>
                 </div>

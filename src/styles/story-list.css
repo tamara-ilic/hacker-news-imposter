@@ -2,7 +2,7 @@
 	background: #f6f6ef;
 	background-color: transparent;
 	min-height: calc(100vh - 7.5rem);
-	padding: 11.125rem 1.5rem 0 15.875rem;
+	padding: 11.125rem 0.55rem 0 15.875rem;
 	position: relative;
 }
 
@@ -52,6 +52,7 @@
 
 .story-meta > span {
 	align-items: center;
+	font-size: 0.65rem;
 	margin-right: 1rem;
 }
 
