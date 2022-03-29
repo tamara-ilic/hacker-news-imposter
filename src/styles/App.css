@@ -1,71 +1,68 @@
 * {
-  box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 #root {
-  width: 100%;
+	width: 100%;
 }
 
 body {
-/* below styles are a hack for the loader - revisit */  
-  align-items: center;
-  background-color: #f5f5fa;
-  display: flex;
-  justify-content: center;
-  min-height: 100vh;
+	/* below styles are a hack for the loader - revisit */
+	align-items: center;
+	background-color: #f5f5fa;
+	display: flex;
+	justify-content: center;
+	min-height: 100vh;
 }
 
 .App {
-  font-family:  -apple-system, BlinkMacSystemFont, sans-serif;
-  text-align: center;
-  width: 85%;
-  margin: 0 auto;
+	font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+	text-align: center;
+	width: 85%;
+	margin: 0 auto;
 }
 
 .App-logo {
-  height: 40vmin;
-  pointer-events: none;
+	height: 40vmin;
+	pointer-events: none;
 }
 
 .App ul {
-  list-style: none;
+	list-style: none;
 }
 
-.App a {
-  cursor: pointer;
-  text-decoration: none;
-}
-
+.App a,
 .App button {
-  cursor: pointer;
+	cursor: pointer;
+	text-decoration: none;
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+	.App-logo {
+		animation: App-logo-spin infinite 20s linear;
+	}
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+	background-color: #282c34;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	font-size: calc(10px + 2vmin);
+	color: white;
 }
 
 .App-link {
-  color: #61dafb;
+	color: #61dafb;
 }
 
 @keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
 }

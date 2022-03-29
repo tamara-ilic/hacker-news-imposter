@@ -76,7 +76,15 @@ export default function App(props) {
       <>
         <ul className='pagination'>
           {pages.map((page) => (
-            <li><a onClick={handlePageChange} className={`${pageNumber + 1 === page ? 'active' : ''}`} key={`page-${page}`} >{page}</a></li>
+            <li>
+              <button
+                onClick={handlePageChange}
+                className={`${pageNumber + 1 === page ? 'active' : ''}`}
+                key={`page-${page}`}
+              >
+                {page}
+              </button>
+            </li>
           ))}
         </ul>
       </>
