@@ -1,131 +1,142 @@
 .search-results {
-    background: #f6f6ef;
-    background-color: transparent;
-    min-height: calc(100vh - 7.5rem);
-    padding: 11.125rem 1.5rem 0 15.875rem;
-    position: relative;
+	background: #f6f6ef;
+	background-color: transparent;
+	min-height: calc(100vh - 7.5rem);
+	padding: 11.125rem 1.5rem 0 15.875rem;
+	position: relative;
 }
 
 .search-results-container {
-    border-radius: 4px;
+	border-radius: 4px;
 }
 
-.story, .story-container, .story-meta, .story-meta > span {
-    display: flex;
+.story,
+.story-container,
+.story-meta,
+.story-meta > span {
+	display: flex;
+}
+
+.story-container {
+	width: 100%;
 }
 
 .story {
-    align-items: center;
-    background-color: #fff;
-    box-shadow: 0 1.125rem 1.5rem rgb(14 16 29 / 12%);
-    min-height: 5.5rem;
-    padding: 1rem;
+	align-items: center;
+	background-color: #fff;
+	box-shadow: 0 1.125rem 1.5rem rgb(14 16 29 / 12%);
+	min-height: 5.5rem;
+	padding: 1rem;
 }
 
 .story:not(:last-child) {
-    border-bottom: 1px solid #eee;
+	border-bottom: 1px solid #eee;
 }
 
 .story-data {
-    text-align: left;
+	text-align: left;
 }
 
 .story-title {
-    color: rgba(33,36,61,.8);
-    display: inline-block;
-    margin-bottom: 4px;
-    width: 100%;
+	color: rgba(33, 36, 61, 0.8);
+	display: inline-block;
+	margin-bottom: 4px;
+	width: 100%;
 }
 
 .story-meta {
-    align-items: center;
-    color: rgba(33,36,61,.5);
-    font-size: 0.625rem;
+	align-items: center;
+	color: rgba(33, 36, 61, 0.5);
+	font-size: 0.625rem;
 }
 
 .story-meta > span {
-    align-items: center;
-    margin-right: 1rem;
+	align-items: center;
+	margin-right: 1rem;
 }
 
 .story-meta > span > svg {
-    margin-right: 4px;
+	margin-right: 4px;
 }
 
 .story-meta span a {
-    color: rgba(33,36,61,.5);
+	color: rgba(33, 36, 61, 0.5);
+}
+
+.story-meta span a.story-url {
+	color: #5a96b1;
 }
 
 .story-meta a:hover {
-    border-bottom: 1px dotted #ccc;
+	border-bottom: 1px dotted #ccc;
 }
 
 .story-socials {
-    align-items: center;
-    display: flex;
-    flex: 1 1;
-    justify-content: flex-end;
-    min-width: 8.75rem;
-    text-align: right;
+	align-items: center;
+	display: flex;
+	flex: 1 1;
+	justify-content: flex-end;
+	min-width: 8.75rem;
+	text-align: right;
 }
 
 .story-socials button {
-    border: none;
-    margin: 0 0.5rem;
+	border: none;
+	margin: 0 0.5rem;
 }
 
 .story-socials button::before {
-    border-right: 6px solid #dbddea;
+	border-right: 6px solid #dbddea;
 }
 
 .story-comments-button {
-    background-color: #dbddea;
-    border-radius: 2px;
-    color: rgba(33,36,61,.8);
-    font-size: 0.75rem;
-    font-weight: 500;
-    height: 1.3125rem;
-    padding: 4px;
-    position: relative;
-    min-width: 1.5625rem;
+	background-color: #dbddea;
+	border-radius: 2px;
+	color: rgba(33, 36, 61, 0.8);
+	font-size: 0.75rem;
+	font-weight: 500;
+	height: 1.3125rem;
+	padding: 4px;
+	position: relative;
+	min-width: 1.5625rem;
 }
 
 .story-comments-button::before {
-    border-bottom: 6px solid transparent;
-    border-top: 6px solid transparent;
-    bottom: -6px;
-    content: "";
-    height: 0;
-    position: absolute;
-    right: 4px;
-    width: 0;
+	border-bottom: 6px solid transparent;
+	border-top: 6px solid transparent;
+	bottom: -6px;
+	content: '';
+	height: 0;
+	position: absolute;
+	right: 4px;
+	width: 0;
 }
 
 .story_comments button:hover:not(:disabled) {
-    background-color: #3a416f;
-    color: #fff;
+	background-color: #3a416f;
+	color: #fff;
 }
 
 .story-share-dropdown label {
-    align-items: center;
-    background-color: transparent;
-    /* border: none;
+	align-items: center;
+	background-color: transparent;
+	/* border: none;
     border-radius: 2px; */
-    color: #dbddea;
-    cursor: pointer;
-    display: flex;
-    font-size: 14px;
-    margin: 0 8px 0 2px;
-    outline: none;
-    overflow: hidden;
-    padding: 0 4px 0 8px;
-    position: relative;
-    text-align: right;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+	color: #dbddea;
+	cursor: pointer;
+	display: flex;
+	font-size: 14px;
+	margin: 0 8px 0 2px;
+	outline: none;
+	overflow: hidden;
+	padding: 0 4px 0 8px;
+	position: relative;
+	text-align: right;
+	text-overflow: ellipsis;
+	white-space: nowrap;
 }
 
 .story-share-dropdown label svg {
-    margin-left: 4px;
-    width: 1.125rem;
+	margin-left: 4px;
+	width: 1.125rem;
 }
