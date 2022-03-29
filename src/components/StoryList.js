@@ -22,7 +22,18 @@ export default function StoryList({stories}) {
   //   return `${timeLapsed} months ago`
   // }
 
-  // const root = new URL("https://stackoverflow.com/questions/8498592/extract-hostname-name-from-string").host
+  const getHost = (url) => {
+    let root
+    try {
+      if (url) {
+        root = new URL(url)
+        console.log(root.host)
+        return root.host
+      }
+    } catch (e) {
+      throw new Error(`Could not extract host for the following URL: ${url}`, e)
+    }
+  } 
 
     return (
       <section className='search-results'>
@@ -36,19 +47,19 @@ export default function StoryList({stories}) {
                       </a>
                       <div className='story-meta'>
                         <span>
-                          <a href={`https://news.ycombinator.com/item?id=${story.objectID}`} target='_blank'>
+                          <a href={`https://news.ycombinator.com/item?id=${story.objectID}`} target='_blank' rel="noreferrer">
                             <HeartIcon />
                             {story.points}
                           </a>
                           </span>
                         <span>
-                          <a href={`https://news.ycombinator.com/user?id=${story.author}`} target='_blank'>
+                          <a href={`https://news.ycombinator.com/user?id=${story.author}`} target='_blank' rel="noreferrer">
                             <PersonIcon />
                             {story.author}
                           </a>
                           </span>
-                        <span><ClockIcon /> {new Date(story.created_at).toLocaleString('en-us')}</span>
-                        <span>{story.url}</span>
+                        <span><ClockIcon /> {new Date(story.created_at).toLocaleString('en-us')} </span>
+                        <span> {getHost(story.url)} </span>
                       </div>
                   </div>
                   <div className='story-socials'>
