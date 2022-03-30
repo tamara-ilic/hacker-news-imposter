@@ -1,12 +1,15 @@
-import '././styles/App.css'
-import '././styles/pagination.css'
+import '../styles/App.css'
+import '../styles/pagination.css'
 import DotLoader from 'react-spinners/DotLoader'
+
 import { useState, useEffect } from 'react'
-import Header from './components/Header'
-import StoryList from './components/StoryList'
-import Sidebar from './components/Sidebar'
+
+import Header from './Header'
+import StoryList from './StoryList'
+import Sidebar from './Sidebar'
 
 export default function App(props) {
+
   const [stories, setStories] = useState([])
   const [query, setQuery] = useState('microdosing')
   let [pageNumber, setPageNumber] = useState(0)
@@ -15,7 +18,7 @@ export default function App(props) {
   const [loading, setLoading] = useState(true)
   const [color, setColor] = useState('orange')
 
-  const url = `https://hn.algolia.com/api/v1/search?query=${query}`;
+  const url = `https://hn.algolia.com/api/v1/search?query=${query}`
 
   const fetchNews = (url, pageNumber) => {
     console.log('called with query: ', query)
@@ -37,19 +40,20 @@ export default function App(props) {
     if (stories[0]) setLoading(false)
   }, [stories])
 
+  // Revisit
   const debounce = (func, wait) => {
-    let timeout;
+    let timeout
   
     return function executedFunction(...args) {
       const later = () => {
-        clearTimeout(timeout);
-        func(...args);
-      };
+        clearTimeout(timeout)
+        func(...args)
+      }
   
-      clearTimeout(timeout);
-      timeout = setTimeout(later, wait);
-    };
-  };
+      clearTimeout(timeout)
+      timeout = setTimeout(later, wait)
+    }
+  }
 
   const handleSearch = (e) => {
     setPageNumber(0)
@@ -71,11 +75,12 @@ export default function App(props) {
     for (let i = 0; i < maxPages; i++) {
       pages.push(i + 1)
     }
+
     return (
       <>
         <ul className='pagination'>
-          {pages.map((page) => (
-            <li>
+          {pages.map((page, i) => (
+            <li key={i}>
               <button
                 onClick={handlePageChange}
                 className={`${pageNumber + 1 === page ? 'active' : ''}`}
@@ -91,7 +96,7 @@ export default function App(props) {
   }
 
   if (loading) 
-    return <DotLoader color={color} size={180} css='override'/>
+    return <DotLoader color={color} size={180} />
   else {
     return (
       <div className='App'>

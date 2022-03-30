@@ -1,10 +1,11 @@
 import './../styles/StoryList.css'
+
+import Moment from 'react-moment'
+
 import HeartIcon from '../images/HeartIcon'
 import PersonIcon from '../images/PersonIcon'
 import ClockIcon from '../images/ClockIcon'
 import StoryShareIcons from '../images/StoryShareIcons'
-
-import Moment from 'react-moment'
 
 export default function StoryList({stories}) {
 
@@ -18,7 +19,6 @@ export default function StoryList({stories}) {
     try {
       if (url) {
         root = new URL(url)
-        console.log(root.host)
         return root.host
       }
     } catch (e) {
@@ -64,9 +64,10 @@ export default function StoryList({stories}) {
                     </span>
                   </div>
                 </div>
+
                 <div className='story-socials'>
                   <button className='story-comments-button'>{story.num_comments}</button>
-                  <div class='story-share-dropdown'>
+                  <div className='story-share-dropdown'>
                     <label>
                       <StoryShareIcons />
                     </label>
