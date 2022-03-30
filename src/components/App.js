@@ -7,8 +7,8 @@ import { UserContext } from '../context/userContext'
 
 import Header from './Header'
 import StoryList from './StoryList'
-import Sidebar from './Sidebar'
 import Pagination from './Pagination'
+import Sidebar from './Sidebar'
 
 export default function App() {
 
@@ -21,25 +21,15 @@ export default function App() {
     if (stories[0]) setLoading(false)
   }, [stories])
 
-  // Revisit
-  const debounce = (func, wait) => {
-    let timeout
-  
-    return function executedFunction(...args) {
-      const later = () => {
-        clearTimeout(timeout)
-        func(...args)
-      }
-  
-      clearTimeout(timeout)
-      timeout = setTimeout(later, wait)
-    }
-  }
+  // let filterTimeout
 
   const handleSearch = (e) => {
-    setPageNumber(0)
-    setQuery(e.target.value)
-    debounce(fetchNews(url, pageNumber), 5000)
+    // clearTimeout(filterTimeout)
+    // filterTimeout = setTimeout(() => {
+      setPageNumber(0)
+      setQuery(e.target.value)
+      fetchNews(url, pageNumber)
+    // }, 500)
   }
 
   if (loading) 
@@ -47,15 +37,10 @@ export default function App() {
   else {
     return (
       <div className='App'>
-
         <Header onSearchInput={handleSearch} />
-
         <StoryList stories={stories}/>
-        
         <Pagination />
-
         <Sidebar />
-
       </div>
     )
   }

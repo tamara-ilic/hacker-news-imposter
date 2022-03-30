@@ -13,7 +13,7 @@ const UserContextProvider = ({ children }) => {
     const url = `https://hn.algolia.com/api/v1/search?query=${query}`
 
     const fetchNews = (url, pageNumber) => {
-      console.log('called with query: ', query)
+      console.log(`called with query: ${query} at ${new Date().getSeconds()}`)
       fetch(`${url}&page=${pageNumber}&tags=story`)
       .then((res) => res.json())
       .then((res) => {
