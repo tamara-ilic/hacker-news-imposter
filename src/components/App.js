@@ -2,39 +2,20 @@ import '../styles/App.css'
 import '../styles/pagination.css'
 import DotLoader from 'react-spinners/DotLoader'
 
-import { useState, useEffect } from 'react'
+import { useContext, useState, useEffect } from 'react'
+import { UserContext } from '../context/userContext'
 
 import Header from './Header'
 import StoryList from './StoryList'
 import Sidebar from './Sidebar'
+import Pagination from './Pagination'
 
-export default function App(props) {
+export default function App() {
 
-  const [stories, setStories] = useState([])
-  const [query, setQuery] = useState('microdosing')
-  let [pageNumber, setPageNumber] = useState(0)
-  let [numberOfHits, setNumberOfHits] = useState(0)
-  let [numberOfPages, setNumberOfPages] = useState(0)
+  const { stories, setQuery, url, fetchNews, pageNumber, setPageNumber } = useContext(UserContext)
+
   const [loading, setLoading] = useState(true)
   const [color, setColor] = useState('orange')
-
-  const url = `https://hn.algolia.com/api/v1/search?query=${query}`
-
-  const fetchNews = (url, pageNumber) => {
-    console.log('called with query: ', query)
-    fetch(`${url}&page=${pageNumber}&tags=story`)
-    .then((res) => res.json())
-    .then((res) => {
-      setNumberOfHits(res.nbHits)
-      setNumberOfPages(res.nbPages)
-      setStories(res.hits)
-      setPageNumber(pageNumber)
-    })
-  }
-
-  useEffect(() => {
-    fetchNews(url, pageNumber)
-  }, [])
 
   useEffect(() => {
     if (stories[0]) setLoading(false)
@@ -59,40 +40,6 @@ export default function App(props) {
     setPageNumber(0)
     setQuery(e.target.value)
     debounce(fetchNews(url, pageNumber), 5000)
-  }
-
-  const handlePageChange = (e) => {
-    const activePage = e.target
-    // pages from API start from 0
-    const newPage = parseInt(activePage.textContent) - 1
-    setPageNumber(newPage)
-    fetchNews(url, newPage)
-  }
-
-  const Pagination = () => {
-    let pages = []
-    const maxPages = numberOfPages > 10 ? 10 : numberOfPages
-    for (let i = 0; i < maxPages; i++) {
-      pages.push(i + 1)
-    }
-
-    return (
-      <>
-        <ul className='pagination'>
-          {pages.map((page, i) => (
-            <li key={i}>
-              <button
-                onClick={handlePageChange}
-                className={`${pageNumber + 1 === page ? 'active' : ''}`}
-                key={`page-${page}`}
-              >
-                {page}
-              </button>
-            </li>
-          ))}
-        </ul>
-      </>
-    )
   }
 
   if (loading) 
