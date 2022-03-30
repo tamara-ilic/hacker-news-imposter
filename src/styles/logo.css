@@ -1,19 +1,19 @@
 .search-header-logo {
-    align-items: center;
-    display: flex;
-    flex: 1 0 230px;
-    max-width: 230px;
+	align-items: center;
+	display: flex;
+	flex: 1 0 230px;
+	max-width: 230px;
 }
 
 img {
-    height: 3.75rem;
-    margin-right: 0.5rem;
-    width: 3.75rem;
+	height: 3.75rem;
+	margin-right: 0.5rem;
+	width: 3.75rem;
 }
 
 .search-header-label {
-    color: rgba(33,36,61,.5);
-    font-size: 1.125rem;
-    line-height: 1;
-    text-align: left;
+	color: rgba(33, 36, 61, 0.5);
+	font-size: 1.125rem;
+	line-height: 1;
+	text-align: left;
 }

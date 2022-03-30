@@ -1,4 +1,4 @@
-import './../styles/story-list.css'
+import './../styles/StoryList.css'
 import HeartIcon from '../images/HeartIcon'
 import PersonIcon from '../images/PersonIcon'
 import ClockIcon from '../images/ClockIcon'

@@ -1,4 +1,4 @@
-import '../styles/sidebar.css'
+import '../styles/Sidebar.css'
 import HomeIcon from '../images/HomeIcon'
 import HotIcon from '../images/HotIcon'
 import SpeakerIcon from '../images/SpeakerIcon'

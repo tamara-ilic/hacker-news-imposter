@@ -101,9 +101,9 @@
 	font-size: 0.75rem;
 	font-weight: 500;
 	height: 1.3125rem;
+	min-width: 1.5625rem;
 	padding: 4px;
 	position: relative;
-	min-width: 1.5625rem;
 }
 
 .story-comments-button::before {
@@ -130,7 +130,7 @@
 	color: #dbddea;
 	cursor: pointer;
 	display: flex;
-	font-size: 14px;
+	font-size: 0.875rem;
 	margin: 0 8px 0 2px;
 	outline: none;
 	overflow: hidden;
