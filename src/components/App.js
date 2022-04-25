@@ -16,6 +16,7 @@ export default function App() {
 
   const [loading, setLoading] = useState(true)
   const [color, setColor] = useState('orange')
+  const [menu, setMenu] = useState(false)
 
   useEffect(() => {
     if (stories[0]) setLoading(false)
@@ -32,6 +33,11 @@ export default function App() {
     // }, 500)
   }
 
+  const toggleMenu = () => {
+    setMenu(prevState => !prevState)
+    console.log(menu)
+  }
+
   if (loading) 
     return <DotLoader color={color} size={180} />
   else {
@@ -40,7 +46,7 @@ export default function App() {
         <Header onSearchInput={handleSearch} />
         <StoryList stories={stories}/>
         <Pagination />
-        <Sidebar />
+        <Sidebar toggleMenu={toggleMenu} />
       </div>
     )
   }
