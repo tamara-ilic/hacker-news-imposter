@@ -2,7 +2,7 @@
 	background: #f6f6ef;
 	background-color: transparent;
 	min-height: calc(100vh - 7.5rem);
-	padding: 11.125rem 0.55rem 0 15.875rem;
+	padding-top: 6.25rem;
 	position: relative;
 }
 
@@ -40,6 +40,7 @@
 .story-title {
 	color: rgba(33, 36, 61, 0.8);
 	display: inline-block;
+	font-size: 14px;
 	margin-bottom: 4px;
 	width: 100%;
 }
@@ -74,7 +75,7 @@
 
 .story-socials {
 	align-items: center;
-	display: flex;
+	display: none;
 	flex: 1 1;
 	justify-content: flex-end;
 	min-width: 8.75rem;
@@ -144,4 +145,18 @@
 .story-share-dropdown label svg {
 	margin-left: 4px;
 	width: 1.125rem;
+}
+
+@media screen and (min-width: 480px) {
+	.search-results {
+		padding: 11.125rem 0.55rem 0 15.875rem;
+	}
+
+	.story-title {
+		font-size: inherit;
+	}
+
+	.story-socials {
+		display: flex;
+	}
 }

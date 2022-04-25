@@ -1,19 +1,37 @@
 .search-header-logo {
 	align-items: center;
 	display: flex;
-	flex: 1 0 230px;
+	flex: 0 0 34px;
 	max-width: 230px;
 }
 
 img {
-	height: 3.75rem;
+	height: 2rem;
 	margin-right: 0.5rem;
-	width: 3.75rem;
+	width: 2rem;
 }
 
 .search-header-label {
 	color: rgba(33, 36, 61, 0.5);
+	display: none;
 	font-size: 1.125rem;
 	line-height: 1;
 	text-align: left;
+}
+
+@media screen and (min-width: 480px) {
+
+	.search-header-logo {
+		flex: 1 0 230px;
+	}
+
+	img {
+		height: 3.75rem;
+		/* margin-right: 0.5rem; */
+		width: 3.75rem;
+	}
+
+	.search-header-label {
+		display: unset;
+	}
 }

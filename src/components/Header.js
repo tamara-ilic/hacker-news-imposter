@@ -32,7 +32,7 @@ export default function Header({ props, onSearchInput }) {
           <div className='search-settings'>
             <a href='/' rel='noreferrer'>
               <SettingsIcon />
-              <span>Settings</span>
+              <span className='search-title'>Settings</span>
             </a>
           </div>
 

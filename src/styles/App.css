@@ -19,7 +19,7 @@ body {
 	font-family: -apple-system, BlinkMacSystemFont, sans-serif;
 	margin: 0 auto;
 	text-align: center;
-	width: 85%;
+	width: 100%;
 }
 
 .App ul {
@@ -30,4 +30,10 @@ body {
 .App button {
 	cursor: pointer;
 	text-decoration: none;
+}
+
+@media screen and (min-width: 480px) {
+	.App {
+		width: 85%;
+	}
 }

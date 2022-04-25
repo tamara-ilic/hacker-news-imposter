@@ -1,7 +1,7 @@
 header {
 	background-color: #f5f5fa;
 	display: flex;
-	padding: 1.5rem;
+	padding: 0.5rem;
 	position: fixed;
 	width: inherit;
 	top: 0;
@@ -12,7 +12,7 @@ header {
 	display: inline-block;
 	margin-right: 1rem;
 	position: relative;
-	width: calc(100% - 20.25rem);
+	width: calc(100% - 6.75rem);
 }
 
 .search-icon {
@@ -25,7 +25,7 @@ header {
 }
 
 .search-icon > svg {
-	width: inherit;
+	width: 1.125rem;
 }
 
 input {
@@ -35,7 +35,7 @@ input {
 	box-shadow: none;
 	color: rgba(0, 0, 0, 0.75);
 	font-weight: 300;
-	height: 4rem;
+	height: 2rem;
 	line-height: 1.15;
 	padding: 1rem 9rem 1rem 3.625rem;
 	width: 100%;
@@ -67,7 +67,7 @@ input {
 .powered-by {
 	align-items: center;
 	color: rgba(33, 36, 61, 0.5);
-	display: flex;
+	display: none;
 	margin-left: 0.5rem;
 	position: absolute;
 	right: 1.5rem;
@@ -103,11 +103,48 @@ svg {
 	border-radius: 4px;
 	color: rgba(33, 36, 61, 0.8);
 	display: flex;
-	min-width: 4rem;
-	padding: 1.25rem;
+	min-width: 0;
+	padding: 0;
 	text-align: center;
 }
 
 span {
+	
 	font-size: 0.875rem;
+}
+
+span.search-title {
+	display: none;
+}
+
+@media screen and (min-width: 480px) {
+
+	header {
+		padding: 1.5rem;
+	}
+	
+	.search-container {
+		width: calc(100% - 20.25rem);
+	}
+
+	.search-icon > svg {
+		width: inherit;
+	}
+
+	input {
+		height: 4rem;
+	}
+	
+	.powered-by {
+		display: flex;
+	}
+
+	.search-settings a {
+		min-width: 4rem;
+		padding: 1.25rem;
+	}
+	
+	span.search-title {
+		display: unset;
+	}
 }

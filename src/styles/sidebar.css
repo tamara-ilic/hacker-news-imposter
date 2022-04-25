@@ -1,5 +1,6 @@
 .sidebar {
 	background-color: #f5f5fa;
+	display: none;
 	height: 100%;
 	overflow: auto;
 	padding-top: 8rem;
@@ -41,4 +42,11 @@
 .sidebar ul li a svg {
 	margin-right: 1.5rem;
 	width: 1.5rem;
+}
+
+@media screen and (min-width: 480px) {
+	.sidebar {
+		display: unset;
+		left: 5.9375rem;
+	}
 }
