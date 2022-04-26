@@ -10,8 +10,10 @@ import EyeIcon from '../images/EyeIcon'
 export default function Sidebar(props) {
     return (
         <>
-            <button onClick={props.toggleMenu}><Burger /></button>
-            <aside className='sidebar'>
+            <button onClick={props.toggleMenu} className='menu'>
+                {props.openMenu ? 'x' : <Burger />}
+            </button>
+            <aside className={`sidebar ${props.openMenu ? `show` : ``}`}>
                 <ul>
                     <li>
                         <a>

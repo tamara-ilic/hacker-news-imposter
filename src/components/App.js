@@ -46,7 +46,7 @@ export default function App() {
         <Header onSearchInput={handleSearch} />
         <StoryList stories={stories}/>
         <Pagination />
-        <Sidebar toggleMenu={toggleMenu} />
+        <Sidebar toggleMenu={toggleMenu} openMenu={openMenu} />
       </div>
     )
   }
