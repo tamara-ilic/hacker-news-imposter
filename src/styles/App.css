@@ -32,9 +32,58 @@ body {
 	text-decoration: none;
 }
 
+button.menu {
+	transition: all 0.3s ease-in-out;
+}
+
+.burger {
+	color: #c3c3c3;
+	margin: 0;
+}
+
+.menu-filters {
+	background-color: #f5f5fa;
+	display: flex;
+	padding: 1rem;
+	position: fixed;
+	top: 3rem;
+	width: inherit;
+	z-index: 4;
+}
+
+.search-filters {
+	margin-left: 1rem;
+}
+
+.search-filters span {
+	font-size: 0.75rem;
+    margin-right: 0.5rem;
+}
+
+.search-dropdown {
+    background-color: rgba(197,201,224,.4);
+    color: rgba(33,36,61,.8);
+    font-size: 0.75rem;
+	height: 1.375rem;
+}
+
 @media screen and (min-width: 480px) {
 	
 	.App {
 		width: 85%;
+	}
+}
+
+@media screen and (min-width: 576px) {
+
+	button.menu {
+		left: 3rem;
+	}
+}
+
+@media screen and (min-width: 769px) {
+
+	button.menu {
+		display: none;
 	}
 }

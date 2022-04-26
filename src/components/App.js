@@ -5,6 +5,7 @@ import DotLoader from 'react-spinners/DotLoader'
 import { useContext, useState, useEffect } from 'react'
 import { UserContext } from '../context/userContext'
 
+import Burger from '../images/Burger'
 import Header from './Header'
 import StoryList from './StoryList'
 import Pagination from './Pagination'
@@ -33,6 +34,14 @@ export default function App() {
     // }, 500)
   }
 
+  const filterSearch = () => {
+    // const option1 = stories.filter(story => story.tag === 'story')
+    // const option2 = stories.filter(story => story.tag === 'story')
+    // setStories(option1) when 'Stories' selected
+      // setStories(option2) when 'Comments' selected
+      // default to All
+  }
+
   const toggleMenu = () => {
     setOpenMenu(prevState => !prevState)
     console.log(openMenu)
@@ -44,6 +53,18 @@ export default function App() {
     return (
       <div className='App'>
         <Header onSearchInput={handleSearch} />
+        <div className='menu-filters'>
+          <button onClick={toggleMenu} className='menu'>
+            {openMenu ? 'x' : <Burger />}
+          </button>
+          <div className='search-filters'>
+            <span>Sort by</span>
+            <select className='search-dropdown'>
+              <option>Popularity</option>
+              <option>Date</option>
+            </select>
+          </div>
+        </div>
         <StoryList stories={stories}/>
         <Pagination />
         <Sidebar toggleMenu={toggleMenu} openMenu={openMenu} />

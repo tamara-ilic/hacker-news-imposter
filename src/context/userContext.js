@@ -14,7 +14,7 @@ const UserContextProvider = ({ children }) => {
 
     const fetchNews = (url, pageNumber) => {
       console.log(`called with query: ${query} at ${new Date().getSeconds()}`)
-      fetch(`${url}&page=${pageNumber}`)
+      fetch(`${url}&page=${pageNumber}&tags=story`)
       .then((res) => res.json())
       .then((res) => {
         setNumberOfHits(res.nbHits)

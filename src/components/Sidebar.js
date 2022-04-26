@@ -1,5 +1,4 @@
 import '../styles/Sidebar.css'
-import Burger from '../images/Burger'
 import HomeIcon from '../images/HomeIcon'
 import HotIcon from '../images/HotIcon'
 import SpeakerIcon from '../images/SpeakerIcon'
@@ -10,9 +9,6 @@ import EyeIcon from '../images/EyeIcon'
 export default function Sidebar(props) {
     return (
         <>
-            <button onClick={props.toggleMenu} className='menu'>
-                {props.openMenu ? 'x' : <Burger />}
-            </button>
             <aside className={`sidebar ${props.openMenu ? `show` : ``}`}>
                 <ul>
                     <li>

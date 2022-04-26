@@ -38,7 +38,6 @@ export default function Header({ props, onSearchInput }) {
               <span className='search-title'>Settings</span>
             </a>
           </div>
-
         </header>
     )
 }

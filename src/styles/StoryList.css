@@ -2,12 +2,13 @@
 	background: #f6f6ef;
 	background-color: transparent;
 	min-height: calc(100vh - 7.5rem);
-	padding-top: 6.25rem;
+	padding-top: 3.25rem;
 	position: relative;
 }
 
 .search-results-container {
 	border-radius: 4px;
+	padding-top: 2rem;
 }
 
 .story,

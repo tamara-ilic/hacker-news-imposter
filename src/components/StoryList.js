@@ -27,56 +27,58 @@ export default function StoryList({stories}) {
   } 
 
     return (
-      <section className='search-results'>
-        <div className='search-results-container'>
-          {stories.map((story) => (
-            <article className='story' key={story.objectID}>
-              <div className='story-container'>
-                <div className='story-data'>
-                  <a className='story-title' href={story.url} target='_blank' rel='noreferrer'>
-                    {story.title}
-                  </a>
-                  <div className='story-meta'>
-                    <span>
-                      <a href={`https://news.ycombinator.com/item?id=${story.objectID}`} target='_blank' rel='noreferrer'>
-                        <HeartIcon />
-                        {story.points}
+        <>
+            <section className='search-results'>
+            <div className='search-results-container'>
+              {stories.map((story) => (
+                <article className='story' key={story.objectID}>
+                  <div className='story-container'>
+                    <div className='story-data'>
+                      <a className='story-title' href={story.url} target='_blank' rel='noreferrer'>
+                        {story.title}
                       </a>
-                    </span>
-                    <span>
-                      <a href={`https://news.ycombinator.com/user?id=${story.author}`} target='_blank' rel='noreferrer'>
-                        <PersonIcon />
-                        {story.author}
-                      </a>
-                    </span>
-                    <span>
-                      <a href={`https://news.ycombinator.com/item?id=${story.objectID}`} target='_blank' rel='noreferrer'>
-                        <ClockIcon />
-                        {calculateTimeLapsedSinceStoryCreation(story.created_at)} 
-                      </a>
-                    </span>
-                    <span>
-                      {story.url ? 
-                        <a href={story.url} target='_blank' rel='noreferrer' className='story-url'>
-                        ({getHost(story.url)})
-                      </a> : ''
-                    }
-                    </span>
-                  </div>
-                </div>
+                      <div className='story-meta'>
+                        <span>
+                          <a href={`https://news.ycombinator.com/item?id=${story.objectID}`} target='_blank' rel='noreferrer'>
+                            <HeartIcon />
+                            {story.points}
+                          </a>
+                        </span>
+                        <span>
+                          <a href={`https://news.ycombinator.com/user?id=${story.author}`} target='_blank' rel='noreferrer'>
+                            <PersonIcon />
+                            {story.author}
+                          </a>
+                        </span>
+                        <span>
+                          <a href={`https://news.ycombinator.com/item?id=${story.objectID}`} target='_blank' rel='noreferrer'>
+                            <ClockIcon />
+                            {calculateTimeLapsedSinceStoryCreation(story.created_at)} 
+                          </a>
+                        </span>
+                        <span>
+                          {story.url ? 
+                            <a href={story.url} target='_blank' rel='noreferrer' className='story-url'>
+                            ({getHost(story.url)})
+                          </a> : ''
+                        }
+                        </span>
+                      </div>
+                    </div>
 
-                <div className='story-socials'>
-                  <button className='story-comments-button'>{story.num_comments}</button>
-                  <div className='story-share-dropdown'>
-                    <label>
-                      <StoryShareIcons />
-                    </label>
+                    <div className='story-socials'>
+                      <button className='story-comments-button'>{story.num_comments}</button>
+                      <div className='story-share-dropdown'>
+                        <label>
+                          <StoryShareIcons />
+                        </label>
+                      </div>
+                    </div>
                   </div>
-                </div>
+                </article>
+              ))}
               </div>
-            </article>
-          ))}
-          </div>
-      </section>
+          </section>
+        </>
     )
 }
