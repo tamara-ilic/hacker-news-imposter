@@ -16,7 +16,7 @@ export default function App() {
 
   const [loading, setLoading] = useState(true)
   const [color, setColor] = useState('orange')
-  const [menu, setMenu] = useState(false)
+  const [openMenu, setOpenMenu] = useState(false)
 
   useEffect(() => {
     if (stories[0]) setLoading(false)
@@ -34,8 +34,8 @@ export default function App() {
   }
 
   const toggleMenu = () => {
-    setMenu(prevState => !prevState)
-    console.log(menu)
+    setOpenMenu(prevState => !prevState)
+    console.log(openMenu)
   }
 
   if (loading) 

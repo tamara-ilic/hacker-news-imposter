@@ -18,7 +18,10 @@ export default function Header({ props, onSearchInput }) {
               type='text'
               placeholder='Search stories by title, url or author'
               value={query}
-              onChange={onSearchInput}>
+              onChange={onSearchInput}
+              className='search-input'
+            >
+                
             </input>
 
             <div className='powered-by'>
