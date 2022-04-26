@@ -147,16 +147,24 @@
 	width: 1.125rem;
 }
 
-@media screen and (min-width: 480px) {
+@media screen and (min-width: 576px) {
+	.story-socials {
+		display: flex;
+	}
+}
+
+@media screen and (min-width: 769px) {
 	.search-results {
-		padding: 11.125rem 0.55rem 0 15.875rem;
+		padding: 11.125rem 0.55rem 0 10rem;
 	}
 
 	.story-title {
 		font-size: inherit;
 	}
+}
 
-	.story-socials {
-		display: flex;
+@media screen and (min-width: 992px) {
+	.search-results {
+		padding-left: 15.875rem;
 	}
 }

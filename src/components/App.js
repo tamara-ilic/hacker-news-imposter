@@ -1,5 +1,5 @@
 import '../styles/App.css'
-import '../styles/pagination.css'
+import '../styles/Pagination.css'
 import DotLoader from 'react-spinners/DotLoader'
 
 import { useContext, useState, useEffect } from 'react'

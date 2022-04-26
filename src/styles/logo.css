@@ -19,7 +19,18 @@ img {
 	text-align: left;
 }
 
-@media screen and (min-width: 480px) {
+@media screen and (min-width: 769px) {
+
+	.search-header-logo {
+		flex: 1 1 50px;
+	}
+
+	.search-header-label {
+		display: unset;
+	}
+}
+
+@media screen and (min-width: 992px) {
 
 	.search-header-logo {
 		flex: 1 0 230px;
@@ -29,9 +40,5 @@ img {
 		height: 3.75rem;
 		/* margin-right: 0.5rem; */
 		width: 3.75rem;
-	}
-
-	.search-header-label {
-		display: unset;
 	}
 }
