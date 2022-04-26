@@ -4,10 +4,10 @@ button {
 }
 
 button.menu {
+    left: 1.125rem;
 	position: fixed;
     top: 3.75rem;
 	transition: all 0.3s ease-in-out;
-    left: 1.125rem;
 }
 
 .burger {
@@ -64,6 +64,12 @@ button.menu {
 
 .sidebar ul li a svg {
 	width: 1rem;
+}
+
+@media screen and (min-width: 576px) {
+	button.menu {
+		left: 3rem;
+	}
 }
 
 @media screen and (min-width: 769px) {
