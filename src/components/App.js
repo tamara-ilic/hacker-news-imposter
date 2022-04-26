@@ -47,6 +47,22 @@ export default function App() {
     console.log(openMenu)
   }
 
+  // TODO: handle sort in one function with conditions
+
+  const sortStoriesByDate = () => {
+    const storiesSortedByDate = stories.sort((function(a, b) {
+      return b.created_at_i -  a.created_at_i
+    }))
+    return storiesSortedByDate
+  }
+
+  const sortStoriesByPopularity = () => {
+    const storiesSortedByPopularity = stories.sort((function(a, b) {
+      return b.points -  a.points
+    }))
+    return storiesSortedByPopularity // default
+  }
+
   if (loading) 
     return <DotLoader color={color} size={180} />
   else {
