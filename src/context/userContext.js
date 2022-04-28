@@ -20,7 +20,7 @@ const UserContextProvider = ({ children }) => {
         setNumberOfHits(res.nbHits)
         setNumberOfPages(res.nbPages)
         setStories(res.hits)
-        setPageNumber(pageNumber)
+        // setPageNumber(pageNumber)
       })
     }
   

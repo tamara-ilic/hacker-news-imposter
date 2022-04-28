@@ -15,9 +15,21 @@ export default function App() {
 
   const { stories, setQuery, url, fetchNews, pageNumber, setPageNumber } = useContext(UserContext)
 
+  const dropDownOptions = [
+    {
+      id: 1,
+      value: 'Popularity'
+    },
+    {
+      id: 2,
+      value: 'Date'
+    }
+  ]
+
   const [loading, setLoading] = useState(true)
   const [color, setColor] = useState('orange')
   const [openMenu, setOpenMenu] = useState(false)
+  const [sortResults, setSortResults] = useState(dropDownOptions[0].value)
 
   useEffect(() => {
     if (stories[0]) setLoading(false)
@@ -49,18 +61,35 @@ export default function App() {
 
   // TODO: handle sort in one function with conditions
 
-  const sortStoriesByDate = () => {
-    const storiesSortedByDate = stories.sort((function(a, b) {
-      return b.created_at_i -  a.created_at_i
-    }))
-    return storiesSortedByDate
-  }
+  // const sortStoriesByDate = () => {
+  //   const storiesSortedByDate = stories.sort((function(a, b) {
+  //     return b.created_at_i -  a.created_at_i
+  //   }))
+  //   return storiesSortedByDate
+  // }
 
-  const sortStoriesByPopularity = () => {
-    const storiesSortedByPopularity = stories.sort((function(a, b) {
-      return b.points -  a.points
-    }))
-    return storiesSortedByPopularity // default
+  // const sortStoriesByPopularity = () => {
+  //   const storiesSortedByPopularity = stories.sort((function(a, b) {
+  //     return b.points -  a.points
+  //   }))
+  //   return storiesSortedByPopularity // default
+  // }
+
+  const handleSort = (e, dropDownOption) => {
+    console.log('dropdown clicked', e.target.value)
+    if (e.target.value === 'Popularity') {
+      setSortResults(dropDownOptions[0])
+      const storiesSortedByPopularity = stories.sort((function(a, b) {
+        return b.points -  a.points
+      }))
+      return storiesSortedByPopularity // default
+    } else {
+      setSortResults(dropDownOptions[1])
+      const storiesSortedByDate = stories.sort((function(a, b) {
+        return b.created_at_i -  a.created_at_i
+      }))
+      return storiesSortedByDate
+    }
   }
 
   if (loading) 
@@ -68,22 +97,38 @@ export default function App() {
   else {
     return (
       <div className='App'>
+
         <Header onSearchInput={handleSearch} />
+
         <div className='menu-filters'>
           <button onClick={toggleMenu} className='menu'>
             {openMenu ? 'x' : <Burger />}
           </button>
           <div className='search-filters'>
             <span>Sort by</span>
-            <select className='search-dropdown'>
-              <option>Popularity</option>
-              <option>Date</option>
+            <select className='search-dropdown' onChange={(e) => handleSort(e, dropDownOptions)}>
+              {dropDownOptions.map((option) => (
+                <option key={option.id}>{option.value}</option>
+              ))}
             </select>
           </div>
+          {/* <span>Sort by</span>
+          {/* <div class="dropdown" onClick={(e) => handleSort(e, dropDownOptions)}>
+            <span class="dropbtn">Sort by</span>
+            <div class="dropdown-content">
+              {dropDownOptions.map((option) => (
+                <div key={option.id}>{option.value}</div>
+              ))}
+            </div>
+          </div> */}
         </div>
+
         <StoryList stories={stories}/>
+
         <Pagination />
+
         <Sidebar toggleMenu={toggleMenu} openMenu={openMenu} />
+
       </div>
     )
   }
