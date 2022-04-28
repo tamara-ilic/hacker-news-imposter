@@ -20,7 +20,6 @@ const UserContextProvider = ({ children }) => {
         setNumberOfHits(res.nbHits)
         setNumberOfPages(res.nbPages)
         setStories(res.hits)
-        // setPageNumber(pageNumber)
       })
     }
   
@@ -37,7 +36,6 @@ const UserContextProvider = ({ children }) => {
         // pages from API start from 0
         const newPage = parseInt(activePage.textContent) - 1
         setPageNumber(newPage)
-        // window.scrollTo({top: 0, left: 0, behavior: 'smooth'})
         fetchNews(url, newPage)
     }
   

@@ -41,7 +41,7 @@ button.menu {
 	margin: 0;
 }
 
-.menu-filters {
+.menu--filters {
 	background-color: #f5f5fa;
 	display: flex;
 	justify-content: space-between;
@@ -52,11 +52,11 @@ button.menu {
 	z-index: 4;
 }
 
-.search-filters {
+.search--filters {
 	margin-left: 1rem;
 }
 
-.search-filters span {
+.search--filters span {
 	font-size: 0.75rem;
     margin-right: 0.5rem;
 }
@@ -68,24 +68,13 @@ button.menu {
 	height: 1.375rem;
 }
 
-@media screen and (min-width: 480px) {
-	
-	
-}
-
-@media screen and (min-width: 576px) {
-
-	/* button.menu {
-		left: 3rem;
-	} */
-}
-
 @media screen and (min-width: 769px) {
+
 	.App {
 		width: 85%;
 	}
 
-	.menu-filters {
+	.menu--filters {
 		justify-content: end;
 	}
 
@@ -101,7 +90,7 @@ button.menu {
 		width: 100vw;
 	}
 
-	.menu-filters {
+	.menu--filters {
 		top: 6rem;
 		width: 99%;
 	}

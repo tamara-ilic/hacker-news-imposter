@@ -2,7 +2,7 @@ import './../styles/Logo.css'
 
 export default function Logo() {
     return (
-        <div className='search-header-logo'>
+        <div className='search--header_logo'>
             <a href='/'>
                 <img
                     src={require('../images/hn-logo.png')  }
@@ -11,7 +11,7 @@ export default function Logo() {
                 </img>
             </a>
             <a href='/'>
-                <div className='search-header-label'>
+                <div className='search--header_label'>
                     Search <br /> Hacker News    
                 </div>
             </a>

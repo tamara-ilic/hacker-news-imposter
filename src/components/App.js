@@ -48,11 +48,9 @@ export default function App() {
 
   const toggleMenu = () => {
     setOpenMenu(prevState => !prevState)
-    console.log(openMenu)
   }
 
   const handleSort = (e, dropDownOption) => {
-    console.log('dropdown clicked', e.target.value)
     if (e.target.value === 'Popularity') {
       setSortResults(dropDownOptions[0])
       const storiesSortedByPopularity = stories.sort((function(a, b) {
@@ -76,13 +74,13 @@ export default function App() {
 
         <Header onSearchInput={handleSearch} />
 
-        <div className='menu-filters'>
+        <div className='menu--filters'>
           <button onClick={toggleMenu} className='menu'>
             {openMenu ? 'x' : <Burger />}
           </button>
-          <div className='search-filters'>
+          <div className='search--filters'>
             <span>Sort by</span>
-            <select className='search-dropdown' onChange={(e) => handleSort(e, dropDownOptions)}>
+            <select onChange={(e) => handleSort(e, dropDownOptions)}>
               {dropDownOptions.map((option) => (
                 <option key={option.id}>{option.value}</option>
               ))}

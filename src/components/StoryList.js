@@ -7,7 +7,7 @@ import PersonIcon from '../images/PersonIcon'
 import ClockIcon from '../images/ClockIcon'
 import StoryShareIcons from '../images/StoryShareIcons'
 
-export default function StoryList({stories}) {
+export default function StoryList({ stories }) {
 
   const calculateTimeLapsedSinceStoryCreation = (time) => {
      const dateCreated = new Date(time)
@@ -28,16 +28,16 @@ export default function StoryList({stories}) {
 
     return (
         <>
-            <section className='search-results'>
-            <div className='search-results-container'>
+            <section className='search--results'>
+            <div className='search--results_container'>
               {stories.map((story) => (
                 <article className='story' key={story.objectID}>
-                  <div className='story-container'>
-                    <div className='story-data'>
-                      <a className='story-title' href={story.url} target='_blank' rel='noreferrer'>
+                  <div className='story--container'>
+                    <div className='story--data'>
+                      <a className='story--title' href={story.url} target='_blank' rel='noreferrer'>
                         {story.title}
                       </a>
-                      <div className='story-meta'>
+                      <div className='story--meta'>
                         <span>
                           <a href={`https://news.ycombinator.com/item?id=${story.objectID}`} target='_blank' rel='noreferrer'>
                             <HeartIcon />
@@ -58,7 +58,7 @@ export default function StoryList({stories}) {
                         </span>
                         <span>
                           {story.url ? 
-                            <a href={story.url} target='_blank' rel='noreferrer' className='story-url'>
+                            <a href={story.url} target='_blank' rel='noreferrer' className='story--url'>
                             ({getHost(story.url)})
                           </a> : ''
                         }
@@ -66,9 +66,9 @@ export default function StoryList({stories}) {
                       </div>
                     </div>
 
-                    <div className='story-socials'>
-                      <button className='story-comments-button'>{story.num_comments}</button>
-                      <div className='story-share-dropdown'>
+                    <div className='story--socials'>
+                      <button className='story--button_comments'>{story.num_comments}</button>
+                      <div className='story--dropdown_share'>
                         <label>
                           <StoryShareIcons />
                         </label>

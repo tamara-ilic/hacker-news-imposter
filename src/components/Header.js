@@ -4,22 +4,20 @@ import Logo from '../images/Logo'
 import SearchIcon from '../images/SearchIcon'
 import SettingsIcon from '../images/SettingsIcon'
 
-export default function Header({ props, onSearchInput }) {
-
-    const query = props
+export default function Header(props) {
 
     return (
         <header>
           <Logo />
 
-          <div className='search-container'>
+          <div className='search--container'>
             <SearchIcon />
             <input
               type='text'
               placeholder='Search stories by title, url or author'
-              value={query}
-              onChange={onSearchInput}
-              className='search-input'
+              value={props.query}
+              onChange={props.onSearchInput}
+              className='search--input'
             >
                 
             </input>
@@ -32,10 +30,10 @@ export default function Header({ props, onSearchInput }) {
             </div>
           </div>
 
-          <div className='search-settings'>
+          <div className='search--settings'>
             <a href='/' rel='noreferrer'>
               <SettingsIcon />
-              <span className='search-title'>Settings</span>
+              <span className='search--title'>Settings</span>
             </a>
           </div>
         </header>
