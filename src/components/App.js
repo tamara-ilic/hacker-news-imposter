@@ -46,34 +46,10 @@ export default function App() {
     // }, 500)
   }
 
-  const filterSearch = () => {
-    // const option1 = stories.filter(story => story.tag === 'story')
-    // const option2 = stories.filter(story => story.tag === 'story')
-    // setStories(option1) when 'Stories' selected
-      // setStories(option2) when 'Comments' selected
-      // default to All
-  }
-
   const toggleMenu = () => {
     setOpenMenu(prevState => !prevState)
     console.log(openMenu)
   }
-
-  // TODO: handle sort in one function with conditions
-
-  // const sortStoriesByDate = () => {
-  //   const storiesSortedByDate = stories.sort((function(a, b) {
-  //     return b.created_at_i -  a.created_at_i
-  //   }))
-  //   return storiesSortedByDate
-  // }
-
-  // const sortStoriesByPopularity = () => {
-  //   const storiesSortedByPopularity = stories.sort((function(a, b) {
-  //     return b.points -  a.points
-  //   }))
-  //   return storiesSortedByPopularity // default
-  // }
 
   const handleSort = (e, dropDownOption) => {
     console.log('dropdown clicked', e.target.value)
@@ -112,15 +88,6 @@ export default function App() {
               ))}
             </select>
           </div>
-          {/* <span>Sort by</span>
-          {/* <div class="dropdown" onClick={(e) => handleSort(e, dropDownOptions)}>
-            <span class="dropbtn">Sort by</span>
-            <div class="dropdown-content">
-              {dropDownOptions.map((option) => (
-                <div key={option.id}>{option.value}</div>
-              ))}
-            </div>
-          </div> */}
         </div>
 
         <StoryList stories={stories}/>

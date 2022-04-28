@@ -156,7 +156,7 @@
 
 @media screen and (min-width: 769px) {
 	.search-results {
-		padding: 11.125rem 0.55rem 0 10rem;
+		padding: 6.25rem 0.55rem 0 10rem;
 	}
 
 	.story-title {
@@ -166,6 +166,6 @@
 
 @media screen and (min-width: 992px) {
 	.search-results {
-		padding-left: 15.875rem;
+		padding-left: 19rem;
 	}
 }

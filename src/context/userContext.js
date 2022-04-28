@@ -28,11 +28,16 @@ const UserContextProvider = ({ children }) => {
       fetchNews(url, pageNumber)
     }, [])
 
+    useEffect(() => {
+      window.scrollTo({top: 0, left: 0, behavior: 'smooth'})
+    }, [pageNumber])
+
     const handlePageChange = (e) => {
         const activePage = e.target
         // pages from API start from 0
         const newPage = parseInt(activePage.textContent) - 1
         setPageNumber(newPage)
+        // window.scrollTo({top: 0, left: 0, behavior: 'smooth'})
         fetchNews(url, newPage)
     }
   

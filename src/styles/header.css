@@ -3,7 +3,7 @@ header {
 	display: flex;
 	padding: 0.5rem;
 	position: fixed;
-	width: inherit;
+	width: 100vw; /* inherit */
 	top: 0;
 	z-index: 3;
 }
@@ -126,7 +126,7 @@ span.search-title {
 	display: none;
 }
 
-@media screen and (min-width: 769px) {
+@media screen and (min-width: 992px) {
 
 	header {
 		left: 1rem;
