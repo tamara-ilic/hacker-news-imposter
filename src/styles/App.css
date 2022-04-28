@@ -69,7 +69,6 @@ button.menu {
 }
 
 @media screen and (min-width: 769px) {
-
 	.App {
 		width: 85%;
 	}
@@ -85,7 +84,6 @@ button.menu {
 }
 
 @media screen and (min-width: 992px) {
-
 	.App {
 		width: 100vw;
 	}
@@ -93,5 +91,11 @@ button.menu {
 	.menu--filters {
 		top: 6rem;
 		width: 99%;
+	}
+}
+
+@media screen and (min-width: 1400px) {
+	.menu--filters {
+		padding-right: 4.5rem;
 	}
 }

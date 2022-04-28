@@ -20,7 +20,6 @@ img {
 }
 
 @media screen and (min-width: 992px) {
-
 	.search--header_logo {
 		flex: 1 1 50px;
 	}
@@ -31,7 +30,6 @@ img {
 }
 
 @media screen and (min-width: 992px) {
-
 	.search--header_logo {
 		flex: 1 0 230px;
 	}
